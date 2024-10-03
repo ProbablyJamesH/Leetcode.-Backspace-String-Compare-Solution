@@ -1,0 +1,41 @@
+import itertools
+class Solution(object):
+    def backspaceCompare(self, s, t):
+
+        from collections import deque
+
+
+        stack1 = deque()
+        stack2 = deque()
+
+        #putting the correct characters in the stack 
+        for char in s:
+            if char != '#':
+                stack1.append(char)
+            else :
+                if stack1:
+                    stack1.pop()
+
+        for char in t:
+            if char != '#':
+                stack2.append(char)
+            else :
+                if stack2:
+                    stack2.pop()
+
+    #checks to see if they are correct 
+        if len(stack1) != len(stack2):
+            return False
+
+        else:  
+         if len(stack1) != len(stack2):
+            return False
+
+        while stack1:
+            if stack1.pop() != stack2.pop():
+                return False
+
+        return True
+
+        
+        
